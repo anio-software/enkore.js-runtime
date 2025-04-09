@@ -32,11 +32,13 @@ export function createRuntimeContext(
 	}
 
 	return createEntity("EnkoreJSRuntimeContext", 0, 0, {
-		__internalDoNotUse: {} as any,
 		log,
 		options,
-		project: {
+		currentProject: {
 			enkoreConfiguration: project.enkoreConfiguration,
+			packageJSON: project.packageJSON
+		},
+		project: {
 			packageJSON: project.packageJSON
 		}
 	})
