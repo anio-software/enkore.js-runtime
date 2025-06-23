@@ -7,9 +7,7 @@ export const defaultPrintLine: NonNullable<EnkoreJSRuntimeContextOptions["printL
 ) {
 	void context;
 
-	// @ts-ignore:next-line
 	if (typeof process === "object") {
-		// @ts-ignore:next-line
 		process.stderr.write(`${line}\n`)
 	} else if (typeof console === "object") {
 		console.log(line)

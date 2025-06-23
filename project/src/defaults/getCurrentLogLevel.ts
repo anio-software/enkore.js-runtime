@@ -20,9 +20,7 @@ export const defaultGetCurrentLogLevel: NonNullable<EnkoreJSRuntimeContextOption
 	return (() => {
 		let envObject: object|null = null
 
-		// @ts-ignore:next-line
 		if (typeof process === "object") {
-			// @ts-ignore:next-line
 			envObject = process.env
 		} else if (typeof window === "object") {
 			envObject = window
