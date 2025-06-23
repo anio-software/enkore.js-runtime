@@ -1,4 +1,4 @@
-import type {JSRuntimeLogLevel} from "@enkore/spec/primitives"
+import type {JSRuntimeLogLevel} from "@anio-software/enkore-private.spec/primitives"
 
 export function logLevelToNumber(level: JSRuntimeLogLevel): number {
 	const map: {

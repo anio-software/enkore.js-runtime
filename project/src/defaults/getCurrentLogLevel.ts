@@ -1,6 +1,6 @@
 import type {
 	EnkoreJSRuntimeContextOptions
-} from "@enkore/spec"
+} from "@anio-software/enkore-private.spec"
 import {isValidLogLevelString} from "../isValidLogLevelString.ts"
 
 function toLowerCase(v: any): string {

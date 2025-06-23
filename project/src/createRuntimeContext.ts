@@ -3,11 +3,11 @@ import {
 	type EnkoreJSRuntimeContext,
 	type EnkoreJSRuntimeContextOptions,
 	createEntity
-} from "@enkore/spec"
+} from "@anio-software/enkore-private.spec"
 
 import type {
 	JSRuntimeLogLevelTuple
-} from "@enkore/spec/primitives"
+} from "@anio-software/enkore-private.spec/primitives"
 
 export function createRuntimeContext(
 	project: EnkoreJSRuntimeProject,

@@ -1,7 +1,7 @@
 import type {
 	JSRuntimeLogLevel,
 	JSRuntimeLogLevelTuple
-} from "@enkore/spec/primitives"
+} from "@anio-software/enkore-private.spec/primitives"
 
 export function isValidLogLevelString(
 	str: string

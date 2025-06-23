@@ -1,6 +1,6 @@
 import type {
 	EnkoreJSRuntimeContextOptions
-} from "@enkore/spec"
+} from "@anio-software/enkore-private.spec"
 
 import {defaultGetCurrentLogLevel} from "./getCurrentLogLevel.ts"
 import {compareLogLevel} from "../compareLogLevel.ts"

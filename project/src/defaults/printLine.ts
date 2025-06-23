@@ -1,6 +1,6 @@
 import type {
 	EnkoreJSRuntimeContextOptions
-} from "@enkore/spec"
+} from "@anio-software/enkore-private.spec"
 
 export const defaultPrintLine: NonNullable<EnkoreJSRuntimeContextOptions["printLine"]> = function(
 	context, line

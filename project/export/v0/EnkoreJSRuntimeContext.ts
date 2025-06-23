@@ -1,1 +1,1 @@
-export type {EnkoreJSRuntimeContext} from "@enkore/spec"
+export type {EnkoreJSRuntimeContext} from "@anio-software/enkore-private.spec"
