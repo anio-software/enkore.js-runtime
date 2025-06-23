@@ -36,7 +36,8 @@ export function createRuntimeContext(
 		options,
 		currentProject: createEntity("EnkoreJSRuntimeProject", 0, 0, {
 			enkoreConfiguration: project.enkoreConfiguration,
-			packageJSON: project.packageJSON
+			packageJSON: project.packageJSON,
+			projectId: project.projectId
 		}),
 		originatingPackage: {
 			name: project.packageJSON.name,
