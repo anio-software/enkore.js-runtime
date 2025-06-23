@@ -8,11 +8,5 @@
     "type": "git",
     "url": "git+https://github.com/anio-software/enkore.js-runtime.git"
   },
-  "type": "module",
-  "devDependencies": {
-    "@enkore-target/js-none": "^0.0.10",
-    "@enkore/core": "^0.6.6",
-    "@enkore/spec": "^0.226.0",
-    "enkore": "^0.0.20"
-  }
+  "type": "module"
 }
