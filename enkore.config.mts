@@ -22,6 +22,15 @@ export const config: unknown = defineConfig({
 				}
 			},
 
+			exports: {
+				"v0": {
+					checkAgainstInterface: [
+						"@anio-software/enkore-private.spec",
+						"EnkoreJSRuntimeAPI_V0"
+					]
+				}
+			},
+
 			publish: [{
 				registry: "anioSoftware"
 			}]
