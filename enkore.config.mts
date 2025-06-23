@@ -1,10 +1,10 @@
 import {defineConfig} from "@anio-software/enkore"
-import {defineTargetConfig} from "@anio-software/enkore.target-js-hybrid"
+import {defineTargetOptions} from "@anio-software/enkore.target-js-hybrid"
 
 export const config: unknown = defineConfig({
 	target: {
 		name: "js-hybrid",
-		options: defineTargetConfig({
+		options: defineTargetOptions({
 			_disableRuntimeCodeInjection: true,
 
 			registry: {
