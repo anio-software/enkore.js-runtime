@@ -16,6 +16,7 @@ export const defaultShouldLog: NonNullable<EnkoreJSRuntimeContextOptions["should
 
 	const currentLogLevel = (() => {
 		if (!context.options.getCurrentLogLevel) {
+			// default get current log level will never return 'null'
 			return defaultGetCurrentLogLevel(context)!
 		}
 
