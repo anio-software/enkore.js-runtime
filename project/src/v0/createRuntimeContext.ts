@@ -1,5 +1,4 @@
 import {
-	type EnkoreJSRuntimeProject,
 	type EnkoreJSRuntimeContext,
 	type EnkoreJSRuntimeContextOptions,
 	createEntity
@@ -12,26 +11,14 @@ import type {
 import {defaultLogWithLevel} from "./defaults/logWithLevel.ts"
 
 export function createRuntimeContext(
-	project: EnkoreJSRuntimeProject,
-	userOptions: EnkoreJSRuntimeContextOptions|undefined
+	contextOptions: EnkoreJSRuntimeContextOptions
 ): EnkoreJSRuntimeContext {
-	const options = userOptions ?? createEntity("EnkoreJSRuntimeContextOptions", 0, 0, {
-
-	})
-
 	const context = createEntity("EnkoreJSRuntimeContext", 0, 0, {
 		log: {} as any,
-		options,
-		currentProject: createEntity("EnkoreJSRuntimeProject", 0, 0, {
-			enkoreConfiguration: project.enkoreConfiguration,
-			packageJSON: project.packageJSON,
-			projectId: project.projectId
-		}),
-		originatingPackage: {
-			name: project.packageJSON.name,
-			version: project.packageJSON.version,
-			author: project.packageJSON.author,
-			license: project.packageJSON.license
+		optionsUsedToCreateContext: contextOptions,
+		currentProject: contextOptions.project,
+		currentPackage: {
+			...contextOptions.__internalDoNotUse!.originatingPackage
 		}
 	})
 
@@ -40,19 +27,19 @@ export function createRuntimeContext(
 	]
 
 	const logFunction: any = function(...args: any[]) {
-		if (!options.logWithLevel) {
+		if (!contextOptions.logWithLevel) {
 			defaultLogWithLevel(context, "info", args)
 		} else {
-			options.logWithLevel(context, "info", args)
+			contextOptions.logWithLevel(context, "info", args)
 		}
 	}
 
 	for (const logLevel of logLevels) {
 		logFunction[logLevel] = function(...args: any[]) {
-			if (!options.logWithLevel) {
+			if (!contextOptions.logWithLevel) {
 				defaultLogWithLevel(context, logLevel, args)
 			} else {
-				options.logWithLevel(context, logLevel, args)
+				contextOptions.logWithLevel(context, logLevel, args)
 			}
 		}
 	}
