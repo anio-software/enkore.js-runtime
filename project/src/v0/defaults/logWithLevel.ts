@@ -7,15 +7,17 @@ import {defaultPrintLine} from "./printLine.ts"
 export const defaultLogWithLevel: NonNullable<EnkoreJSRuntimeContextOptions["logWithLevel"]> = function(
 	context, level, lines
 ) {
-	const tag = context.options.tag ?? ""
+	const contextOptions = context.optionsUsedToCreateContext
+
+	const tag = contextOptions.tag ?? ""
 	const pkg = context.originatingPackage
 
 	// exit early if we don't want to log message
-	if (!context.options.shouldLog) {
+	if (!contextOptions.shouldLog) {
 		if (!defaultShouldLog(context, level, pkg, tag)) {
 			return
 		}
-	} else if (context.options.shouldLog(context, level, pkg, tag) !== true) {
+	} else if (contextOptions.shouldLog(context, level, pkg, tag) !== true) {
 		return
 	}
 
@@ -51,11 +53,11 @@ export const defaultLogWithLevel: NonNullable<EnkoreJSRuntimeContextOptions["log
 
 	const result = str.slice(0, str.length - 1)
 
-	if (!context.options.printLine) {
+	if (!contextOptions.printLine) {
 		defaultPrintLine(context, result)
 
 		return
 	}
 
-	context.options.printLine(context, result)
+	contextOptions.printLine(context, result)
 }

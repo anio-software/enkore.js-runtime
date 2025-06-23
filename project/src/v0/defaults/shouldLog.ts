@@ -14,13 +14,15 @@ export const defaultShouldLog: NonNullable<EnkoreJSRuntimeContextOptions["should
 	void pkg;
 	void tag;
 
+	const contextOptions = context.optionsUsedToCreateContext
+
 	const currentLogLevel = (() => {
-		if (!context.options.getCurrentLogLevel) {
+		if (!contextOptions.getCurrentLogLevel) {
 			// default get current log level will never return 'null'
 			return defaultGetCurrentLogLevel(context)!
 		}
 
-		let newLogLevel = context.options.getCurrentLogLevel(context)
+		let newLogLevel = contextOptions.getCurrentLogLevel(context)
 
 		if (newLogLevel === null) {
 			return defaultGetCurrentLogLevel(context)!
