@@ -9,6 +9,8 @@ import type {
 	JSRuntimeLogLevelTuple
 } from "@anio-software/enkore-private.spec/primitives"
 
+import {defaultLogWithLevel} from "./defaults/logWithLevel.ts"
+
 export function createRuntimeContext(
 	project: EnkoreJSRuntimeProject,
 	userOptions: EnkoreJSRuntimeContextOptions|undefined
@@ -38,14 +40,24 @@ export function createRuntimeContext(
 	]
 
 	const logFunction: any = function(...args: any[]) {
-		console.log("project", project.packageJSON.name, "says", args)
+		if (!options.logWithLevel) {
+			defaultLogWithLevel(context, "info", args)
+		} else {
+			options.logWithLevel(context, "info", args)
+		}
 	}
 
 	for (const logLevel of logLevels) {
 		logFunction[logLevel] = function(...args: any[]) {
-			console.log("project", project.packageJSON.name, "says", args)
+			if (!options.logWithLevel) {
+				defaultLogWithLevel(context, logLevel, args)
+			} else {
+				options.logWithLevel(context, logLevel, args)
+			}
 		}
 	}
+
+	context.log = logFunction
 
 	return context
 }
