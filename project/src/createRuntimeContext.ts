@@ -17,22 +17,8 @@ export function createRuntimeContext(
 
 	})
 
-	const logLevels: JSRuntimeLogLevelTuple = [
-		"fatal", "error", "warn", "info", "debug", "trace"
-	]
-
-	const log: any = function(...args: any[]) {
-		console.log("project", project.packageJSON.name, "says", args)
-	}
-
-	for (const logLevel of logLevels) {
-		log[logLevel] = function(...args: any[]) {
-			console.log("project", project.packageJSON.name, "says", args)
-		}
-	}
-
-	return createEntity("EnkoreJSRuntimeContext", 0, 0, {
-		log,
+	const context = createEntity("EnkoreJSRuntimeContext", 0, 0, {
+		log: {} as any,
 		options,
 		currentProject: createEntity("EnkoreJSRuntimeProject", 0, 0, {
 			enkoreConfiguration: project.enkoreConfiguration,
@@ -46,4 +32,20 @@ export function createRuntimeContext(
 			license: project.packageJSON.license
 		}
 	})
+
+	const logLevels: JSRuntimeLogLevelTuple = [
+		"fatal", "error", "warn", "info", "debug", "trace"
+	]
+
+	const logFunction: any = function(...args: any[]) {
+		console.log("project", project.packageJSON.name, "says", args)
+	}
+
+	for (const logLevel of logLevels) {
+		logFunction[logLevel] = function(...args: any[]) {
+			console.log("project", project.packageJSON.name, "says", args)
+		}
+	}
+
+	return context
 }
