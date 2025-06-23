@@ -2,8 +2,8 @@ import type {
 	EnkoreJSRuntimeContextOptions
 } from "@enkore/spec"
 
-import {defaultGetCurrentLogLevel} from "./getCurrentLogLevel.mts"
-import {compareLogLevel} from "../compareLogLevel.mts"
+import {defaultGetCurrentLogLevel} from "./getCurrentLogLevel.ts"
+import {compareLogLevel} from "../compareLogLevel.ts"
 
 export const defaultShouldLog: NonNullable<EnkoreJSRuntimeContextOptions["shouldLog"]> = function(
 	context,

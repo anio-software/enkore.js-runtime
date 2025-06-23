@@ -1,6 +1,6 @@
-import type {RuntimeAPI} from "./RuntimeAPI.mts"
+import type {RuntimeAPI} from "./RuntimeAPI.ts"
 import type {JSRuntimeLogLevel} from "@enkore/spec/primitives"
-import {logLevelToNumber} from "./logLevelToNumber.mts"
+import {logLevelToNumber} from "./logLevelToNumber.ts"
 
 export function compareLogLevel(
 	logLevelLeft: JSRuntimeLogLevel,

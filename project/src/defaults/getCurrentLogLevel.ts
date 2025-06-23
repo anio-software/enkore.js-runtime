@@ -1,7 +1,7 @@
 import type {
 	EnkoreJSRuntimeContextOptions
 } from "@enkore/spec"
-import {isValidLogLevelString} from "../isValidLogLevelString.mts"
+import {isValidLogLevelString} from "../isValidLogLevelString.ts"
 
 function toLowerCase(v: any): string {
 	if (!("toLowerCase" in v)) return ""
