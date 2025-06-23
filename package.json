@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@anio-software/enkore.js-runtime",
   "version": "0.0.0",
   "author": "Anio Software <info@anio.software>",
