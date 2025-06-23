@@ -1,12 +1,12 @@
 {
-  "name": "@enkore/js-runtime",
+  "name": "@anio-software/enkore.js-runtime",
   "version": "0.0.0",
   "author": "Anio Software <info@anio.software>",
   "description": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkore-org/js-runtime.git"
+    "url": "git+https://github.com/anio-software/enkore.js-runtime.git"
   },
   "type": "module",
   "devDependencies": {
