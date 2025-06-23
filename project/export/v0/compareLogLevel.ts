@@ -1,3 +1,3 @@
 export {
 	compareLogLevel
-} from "#~src/compareLogLevel.ts"
+} from "#~src/v0/compareLogLevel.ts"
