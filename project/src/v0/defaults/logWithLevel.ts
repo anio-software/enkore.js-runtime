@@ -10,7 +10,7 @@ export const defaultLogWithLevel: NonNullable<EnkoreJSRuntimeContextOptions["log
 	const contextOptions = context.optionsUsedToCreateContext
 
 	const tag = contextOptions.tag ?? ""
-	const pkg = context.originatingPackage
+	const pkg = context.currentPackage
 
 	// exit early if we don't want to log message
 	if (!contextOptions.shouldLog) {
