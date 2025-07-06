@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "name": "@anio-software/enkore.js-runtime",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
   "author": "Anio Software <info@anio.software>",
   "repository": {
