@@ -3,14 +3,16 @@ import type {
 	RawType
 } from "@anio-software/enkore-private.spec"
 
-import {
-	createJSRuntimeContextOptions
-} from "@anio-software/enkore-private.spec/factory"
-
 export function defineContextOptions(
 	options: RawType<EnkoreJSRuntimeContextOptions>
 ): EnkoreJSRuntimeContextOptions {
-	const entity = createJSRuntimeContextOptions(options)
+	const entity: EnkoreJSRuntimeContextOptions = {
+		...options,
+		entityKind: "EnkoreJSRuntimeContextOptions",
+		entityMajorVersion: 0,
+		entityRevision: 0,
+		entityCreatedBy: null
+	}
 
 	entity.__internalDoNotUse = {
 		originatingPackage: {

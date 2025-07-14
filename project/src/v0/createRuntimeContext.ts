@@ -1,7 +1,6 @@
 import {
 	type EnkoreJSRuntimeContext,
-	type EnkoreJSRuntimeContextOptions,
-	createEntity
+	type EnkoreJSRuntimeContextOptions
 } from "@anio-software/enkore-private.spec"
 
 import type {
@@ -28,7 +27,11 @@ function errorToString(error: unknown): string {
 export function createRuntimeContext(
 	contextOptions: EnkoreJSRuntimeContextOptions
 ): EnkoreJSRuntimeContext {
-	const context = createEntity("EnkoreJSRuntimeContext", 0, 0, {
+	const context: EnkoreJSRuntimeContext = {
+		entityKind: "EnkoreJSRuntimeContext",
+		entityMajorVersion: 0,
+		entityRevision: 0,
+		entityCreatedBy: null,
 		log: {} as any,
 		logException: {} as any,
 		optionsUsedToCreateContext: contextOptions,
@@ -36,7 +39,7 @@ export function createRuntimeContext(
 		currentPackage: {
 			...contextOptions.__internalDoNotUse!.originatingPackage
 		}
-	})
+	}
 
 	const logLevels: JSRuntimeLogLevelTuple = [
 		"fatal", "error", "warn", "info", "debug", "trace"
