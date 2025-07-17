@@ -8,11 +8,11 @@ import {compareLogLevel} from "../compareLogLevel.ts"
 export const defaultShouldLog: NonNullable<EnkoreJSRuntimeContextOptions["shouldLog"]> = function(
 	context,
 	level,
-	pkg,
-	tag
+	tag,
+	extra
 ) {
-	void pkg;
 	void tag;
+	void extra;
 
 	const contextOptions = context.optionsUsedToCreateContext
 
