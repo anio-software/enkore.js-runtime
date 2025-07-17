@@ -38,7 +38,8 @@ export function createRuntimeContext(
 		currentProject: contextOptions.project,
 		currentPackage: {
 			...contextOptions.__internalDoNotUse!.originatingPackage
-		}
+		},
+		currentFunction: contextOptions.__internalDoNotUse!.originatingFunction
 	}
 
 	const logLevels: JSRuntimeLogLevelTuple = [
