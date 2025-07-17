@@ -17,7 +17,7 @@ type Map = {
 	}>
 }
 
-export function createContext<Version extends MajorVersions>(
+export function _createContext<Version extends MajorVersions>(
 	options: EnkoreJSRuntimeContextOptions,
 	version: Version
 ): Map[Version] {
