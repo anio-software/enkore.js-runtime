@@ -14,8 +14,8 @@ export function defineContextOptions(
 		entityCreatedBy: null
 	}
 
-	entity.__internalDoNotUse = {
-		originatingPackage: {
+	if (entity.__internalDoNotUse) {
+		entity.__internalDoNotUse.originatingPackage = {
 			...options.project.packageJSON
 		}
 	}
